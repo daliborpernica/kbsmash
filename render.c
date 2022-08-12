@@ -30,7 +30,7 @@ void onRender(void *data)
             glEnd();
             break;
         case square:
-            glBegin(GL_QUADS);
+            glBegin(GL_TRIANGLE_FAN);
                 glVertex2f(r, 0);
                 glVertex2f(0, r);
                 glVertex2f(-r, 0);
@@ -151,12 +151,14 @@ void onRender(void *data)
             break;
         case star2:
             a = r * 0.4f;
-            glBegin(GL_QUADS);
+            glBegin(GL_TRIANGLE_FAN);
                 glVertex2f(r, 0);
                 glVertex2f(0, a);
                 glVertex2f(-r, 0);
                 glVertex2f(0, -a);
+            glEnd();
 
+            glBegin(GL_TRIANGLE_FAN);
                 glVertex2f(0, r);
                 glVertex2f(a, 0);
                 glVertex2f(0, -r);
@@ -166,12 +168,13 @@ void onRender(void *data)
         case plus:
             a = r * 0.5f;
             b = r * 0.86602540378443864676f;
-            glBegin(GL_QUADS);
+            glBegin(GL_TRIANGLE_FAN);
                 glVertex2f(b, a);
                 glVertex2f(b, -a);
                 glVertex2f(-b, -a);
                 glVertex2f(-b, a);
-
+            glEnd();
+            glBegin(GL_TRIANGLE_FAN);
                 glVertex2f(a, b);
                 glVertex2f(-a, b);
                 glVertex2f(-a, -b);
